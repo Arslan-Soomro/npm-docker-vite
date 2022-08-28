@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  app:
+    # remove node_modules folder and start development server
+    command: sh -c "rm -rf /project/app/node_modules/* && npm run dev"
+    container_name: website
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - exclude:/project/node_modules/
+
+volumes:
+  exclude:
