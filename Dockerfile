@@ -7,8 +7,7 @@ WORKDIR /project
 # Install node packages and update path
 COPY package.json package-lock.json* ./
 RUN npm install
-ENV PATH=/project/node_modules/.bin:$PATH
-
+ENV PATH /project/node_modules/.bin:$PATH
 #go to where source files are
 WORKDIR /project/app
 
